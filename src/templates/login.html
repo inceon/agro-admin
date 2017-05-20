@@ -1,0 +1,26 @@
+<div id="login">
+    <div class="container">
+        <div class="row">
+            <form class="form col-lg-offset-3 col-lg-6">
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" class="form-control" id="email" placeholder="E-mail" ng-model="vm.data.email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" class="form-control" id="password" placeholder="Пароль"
+                           ng-model="vm.data.password">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default btn-block" ng-click="vm.login()">Войти</button>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <a ui-sref="register">Регистрация</a>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <a ui-sref="reset">Востановить пароль</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+{
+  "name": "admin-agro",
+  "version": "1.0.0",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "rdash-ui": "*",
+    "angular-cookies": "*",
+    "angular-bootstrap": "*",
+    "angular-ui-router": "*",
+    "bootstrap": "*",
+    "font-awesome": "*",
+    "angular": "*",
+    "angular-aria": "*",
+    "angular-animate": "*",
+    "toastr": "*",
+    "angular-toastr": "^2.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rdash/rdash-angular"
+  }
+}

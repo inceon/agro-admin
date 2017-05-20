@@ -1,0 +1,33 @@
+.users {
+  .table {
+    td.photo {
+      width: 20%;
+      img {
+        width: 100%;
+      }
+    }
+    td.name, td.surname, td.phone, td.access {
+      width: 17%;
+    }
+    td.menu {
+      width: 8%;
+      i {
+        text-align: center;
+        width: 45%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+        &.glyphicon-remove {
+          color: red;
+        }
+        &.glyphicon-save {
+          color: dodgerblue;
+        }
+        &:hover {
+          background: #eee;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<div class="row news">
+    <div class="col-lg-12">
+        <div ng-repeat="news in vm.news">
+            <div class="photo">
+                <img ng-src="{{news.photo}}">
+            </div>
+            <div class="title">{{news.title}}</div>
+            <div class="date">{{news.date}}</div>
+            <div class="text">{{news.text}}</div>
+        </div>
+    </div>
+</div>
