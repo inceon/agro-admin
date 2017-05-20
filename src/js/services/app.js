@@ -144,10 +144,10 @@
              *
              * @param news data
              */
-            function saveNewsInfo(news) {
+            function saveNewsInfo(newsOne) {
                 news.forEach(function (item) {
-                    if (item.id == news.id) {
-                        item = news;
+                    if (item.id == newsOne.id) {
+                        item = newsOne;
                     }
                 })
             }

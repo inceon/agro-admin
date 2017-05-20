@@ -41,7 +41,7 @@
         }
 
         function addUser() {
-            vm.users.push(vm.newUserData);
+            vm.users.unshift(vm.newUserData);
         }
     }
 }());
