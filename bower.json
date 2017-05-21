@@ -21,7 +21,9 @@
     "angular-aria": "*",
     "angular-animate": "*",
     "toastr": "*",
-    "angular-toastr": "^2.1.1"
+    "angular-toastr": "^2.1.1",
+    "ngstorage": "^0.3.11",
+    "angular-sanitize": "^1.6.4"
   },
   "repository": {
     "type": "git",
