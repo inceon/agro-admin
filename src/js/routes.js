@@ -3,12 +3,13 @@
 
     angular
         .module('app')
-        .config(['$stateProvider', '$urlRouterProvider', config]);
+        .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', config]);
 
-    function config($stateProvider, $urlRouterProvider) {
+    function config($stateProvider, $urlRouterProvider, $httpProvider) {
 
         // For unmatched routes
         $urlRouterProvider.otherwise('/');
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
         // Application routes
         $stateProvider
