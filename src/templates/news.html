@@ -7,13 +7,17 @@
                 </button>
             </div>
         </div>
-        <div class="row card" ng-repeat="news in vm.news track by $index">
+        <div class="row card" ng-repeat="news in vm.news | orderBy:'$index':true track by $index">
+            <div class="del"
+                 ng-click="vm.deleteNews(news)">
+                <i class="glyphicon glyphicon-remove"></i>
+            </div>
             <span ng-if="!news.edit" ng-click="news.edit = !news.edit">
                 <div class="photo">
                     <img ng-src="{{news.photo}}">
                 </div>
                 <div class="title">{{news.title}}</div>
-                <div class="date">{{news.date}}</div>
+                <div class="date">{{news.createdAt | date : 'dd.MM.yyyy HH:mm:ss'}}</div>
                 <div class="text">{{news.text}}</div>
             </span>
 

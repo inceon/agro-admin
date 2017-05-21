@@ -1,7 +1,7 @@
 (function () {
     angular
         .module('app')
-        .service('app', ['$q', 'firebase', 'toastr', function ($q, firebase, toastr) {
+        .service('app', ['$q', 'http', 'toastr', function ($q, http, toastr) {
             var vm = this;
 
             var users = [
@@ -83,6 +83,7 @@
                     text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium aliquam blanditiis enim est quam quas rerum sequi suscipit voluptate?',
                 },
             ];
+            var url = 'https://parseapi.back4app.com/classes/';
 
             vm.getUsers = getUsers;
             vm.saveUserInfo = saveUserInfo;
@@ -137,25 +138,31 @@
             ///////////////////////////////////////////////////////
 
             function getNews() {
-                return news;
+                return http
+                    .get(url + 'News')
+                    .then(function (res) {
+                        return res.results;
+                    });
             }
 
             /**
              *
              * @param news data
              */
-            function saveNewsInfo(newsOne) {
-                news.forEach(function (item) {
-                    if (item.id == newsOne.id) {
-                        item = newsOne;
-                    }
-                })
+            function saveNewsInfo(news) {
+                return http
+                    .put(url + 'News/' + news.objectId, news)
+                    .then(function (res) {
+                        return res.results;
+                    });
             }
 
             function deleteNews(news) {
-                news = news.filter(function (item) {
-                    return item.id != news.id;
-                })
+                return http
+                    .delete(url + 'News/' + news.objectId)
+                    .then(function (res) {
+                        return res.results;
+                    });
             }
 
             /**
@@ -166,13 +173,11 @@
              * @param {{string}} data.text - news text
              */
             function addNews(data) {
-                var maxId = 0;
-                news.forEach(function (item) {
-                    maxId = Math.max(maxId, item.id);
-                });
-
-                data.id = maxId + 1;
-                news.push(data);
+                return http
+                    .post(url + 'News', data)
+                    .then(function (res) {
+                        return res.results;
+                    });
             }
 
         }])

@@ -1,7 +1,7 @@
 (function () {
     angular
         .module('app')
-        .service('user', ['$q', 'firebase', 'toastr', function ($q, firebase, toastr) {
+        .service('user', ['$q', 'toastr', function ($q, toastr) {
             var vm = this;
 
             vm.login = login;
@@ -19,17 +19,6 @@
                 return $q.defer(function (resolve, reject) {
                     resolve(true);
                 });
-                // firebase
-                //     .auth()
-                //     .signInWithEmailAndPassword(data.email, data.password)
-                //     .catch(function (error) {
-                //         if (error.code === 'auth/wrong-password') {
-                //             toastr.error('Wrong password.');
-                //         } else {
-                //             toastr.error(error.message);
-                //         }
-                //         console.info(error.code, '|', error.message);
-                //     });
             }
 
             /**
@@ -37,12 +26,7 @@
              * @return {[boolean]} [signout is success]
              */
             function signout() {
-                // firebase.auth().signOut().then(function () {
-                //     return true;
-                // }).catch(function (error) {
-                //     toastr.error(error.message);
-                //     return false;
-                // });
+
             }
 
 

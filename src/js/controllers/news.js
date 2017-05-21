@@ -9,34 +9,47 @@
         $scope.$emit('changeTitle', 'Новости');
         var vm = this;
 
-        vm.news = app.getNews();
+
         vm.newNewsData = {
-            id: -1,
             photo: '',
             title: '',
             text: '',
-            date: '',
             edit: true
         };
         vm.saveInfo = saveInfo;
         vm.deleteNews = deleteNews;
         vm.addNews = addNews;
+        updateList();
+
+        function updateList() {
+            app.getNews()
+                .then(function (res) {
+                    vm.news = res;
+                });
+        }
 
         function saveInfo(news) {
-            if (news.id !== -1) {
-                app.saveNewsInfo(news);
+            if (news.objectId) {
+                app.saveNewsInfo(news)
+                    .then(function () {
+                        updateList();
+                    });
             } else {
-                app.addNews(news);
+                app.addNews(news)
+                    .then(function () {
+                        updateList();
+                    });
             }
             news.edit = false;
-            vm.news = app.getNews();
         }
 
         function deleteNews(news) {
-            app.deleteNews(news);
-            vm.news = vm.news.filter(function (item) {
-                return item.id != news.id;
-            })
+            if (confirm("Удалить эту запись?")) {
+                app.deleteNews(news)
+                    .then(function () {
+                        updateList();
+                    });
+            }
         }
 
         function addNews() {
