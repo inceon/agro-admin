@@ -1,15 +1,8 @@
 .categories {
-    .just-padding {
-        padding: 15px;
-    }
 
     .list-group.list-group-root {
         padding: 0;
         overflow: hidden;
-    }
-
-    .list-group.list-group-root .list-group {
-        margin-bottom: 0;
     }
 
     .list-group.list-group-root .list-group-item {
@@ -21,12 +14,8 @@
         border-top-width: 0;
     }
 
-    .list-group.list-group-root > .list-group > .list-group-item {
-        padding-left: 30px;
-    }
-
-    .list-group.list-group-root > .list-group > .list-group > .list-group-item {
-        padding-left: 45px;
+    .list-group.list-group-root .list-group .list-group-item {
+        padding-left: 37px;
     }
 
     .list-group-item .glyphicon {

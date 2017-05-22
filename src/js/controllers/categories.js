@@ -9,47 +9,11 @@
         $scope.$emit('changeTitle', 'Категории');
         var vm = this;
         vm.addCategory = addCategory;
+        vm.addSubCategory = addSubCategory;
         vm.updateList = updateList;
         vm.saveInfo = saveInfo;
         vm.deleteCategory = deleteCategory;
-
-        // vm.categories = [{
-        //     name: 'Item 1',
-        //     subcategories: [{
-        //         name: 'Item 1.1',
-        //     },{
-        //         name: 'Item 1.2',
-        //     },{
-        //         name: 'Item 1.3',
-        //     }]
-        // }, {
-        //     name: 'Item 2',
-        //     subcategories: [{
-        //         name: 'Item 2.1',
-        //     },{
-        //         name: 'Item 2.2',
-        //     },{
-        //         name: 'Item 2.3',
-        //     }]
-        // }, {
-        //     name: 'Item 3',
-        //     subcategories: [{
-        //         name: 'Item 3.1',
-        //     },{
-        //         name: 'Item 3.2',
-        //     },{
-        //         name: 'Item 3.3',
-        //     }]
-        // },{
-        //     name: 'Item 4',
-        //     subcategories: [{
-        //         name: 'Item 4.1',
-        //     },{
-        //         name: 'Item 4.2',
-        //     },{
-        //         name: 'Item .3',
-        //     }]
-        // }];
+        vm.deleteSubCategory = deleteSubCategory;
 
         vm.newCategory = {
             name: '',
@@ -57,10 +21,21 @@
             subcategories: []
         };
 
+        vm.newSubCategory = {
+            name: '',
+            category: '',
+            edit: true
+        };
+
         updateList();
 
         function addCategory() {
             vm.categories.push(vm.newCategory);
+        }
+
+        function addSubCategory(category) {
+            vm.newSubCategory.category = category.objectId;
+            category.subcategories.push(vm.newSubCategory);
         }
 
         function updateList() {
@@ -108,6 +83,15 @@
         function deleteCategory(category) {
             if (confirm("Удалить эту запись?")) {
                 app.deleteCategory(category)
+                    .then(function () {
+                        updateList();
+                    });
+            }
+        }
+
+        function deleteSubCategory(subcategory) {
+            if (confirm("Удалить эту запись?")) {
+                app.deleteSubCategory(subcategory)
                     .then(function () {
                         updateList();
                     });

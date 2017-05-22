@@ -249,17 +249,17 @@
              *
              * @param category data
              */
-            function saveSubCategoryInfo(category) {
+            function saveSubCategoryInfo(subcategory) {
                 return http
-                    .put(url + 'Subcategories/' + category.objectId, category)
+                    .put(url + 'Subcategories/' + subcategory.objectId, subcategory)
                     .then(function (res) {
                         return res.results;
                     });
             }
 
-            function deleteSubCategory(category) {
+            function deleteSubCategory(subcategory) {
                 return http
-                    .delete(url + 'Subcategories/' + category.objectId)
+                    .delete(url + 'Subcategories/' + subcategory.objectId)
                     .then(function (res) {
                         return res.results;
                     });
