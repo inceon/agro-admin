@@ -86,6 +86,7 @@
             var url = 'https://parseapi.back4app.com/classes/';
 
             vm.getUsers = getUsers;
+            vm.getUser = getUser;
             vm.saveUserInfo = saveUserInfo;
             vm.deleteUser = deleteUser;
             vm.addUser = addUser;
@@ -105,8 +106,23 @@
             vm.deleteSubCategory = deleteSubCategory;
             vm.addSubCategory = addSubCategory;
 
+            vm.getSuggestion = getSuggestion;
+            vm.deleteSuggestion = deleteSuggestion;
+
             function getUsers() {
                 return users;
+            }
+
+            function getUser(userId) {
+                return http
+                    .get(url + '_User', {
+                        where: {
+                            "objectId": userId
+                        }
+                    })
+                    .then(function (res) {
+                        return res.results;
+                    });
             }
 
             /**
@@ -238,7 +254,11 @@
 
             function getSubCategories(categoryId) {
                 return http
-                    .get(url + 'Subcategories?where={"category":"' + categoryId + '"}')
+                    .get(url + 'Subcategories', {
+                        where: {
+                            "category": categoryId
+                        }
+                    })
                     .then(function (res) {
                         return res.results;
                     });
@@ -273,6 +293,24 @@
             function addSubCategory(data) {
                 return http
                     .post(url + 'Subcategories', data)
+                    .then(function (res) {
+                        return res.results;
+                    });
+            }
+
+            ///////////////////////////////////////////////////////
+
+            function getSuggestion() {
+                return http
+                    .get(url + 'Suggestion')
+                    .then(function (res) {
+                        return res.results;
+                    });
+            }
+
+            function deleteSuggestion(suggestion) {
+                return http
+                    .delete(url + 'Suggestion/' + suggestion.objectId)
                     .then(function (res) {
                         return res.results;
                     });

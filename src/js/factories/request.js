@@ -53,6 +53,12 @@
                     delete data.createdAt;
                     delete data.objectId;
                 }
+                if (method === 'PUT' || method === 'POST') {
+                    if (data.edit) delete data.edit;
+                    if (data.open) delete data.open;
+                    if (data.id) delete data.id;
+                }
+
                 config.data = data;
             }
 

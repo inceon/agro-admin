@@ -42,6 +42,12 @@
                 templateUrl: 'templates/categories.html',
                 controller: 'CategoriesCtrl',
                 controllerAs: 'vm'
+            })
+            .state('app.suggestion', {
+                url: '/suggestion',
+                templateUrl: 'templates/suggestion.html',
+                controller: 'SuggestionCtrl',
+                controllerAs: 'vm'
             });
     }
 }());
