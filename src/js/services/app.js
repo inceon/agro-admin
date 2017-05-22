@@ -95,6 +95,16 @@
             vm.deleteNews = deleteNews;
             vm.addNews = addNews;
 
+            vm.getCategories = getCategories;
+            vm.saveCategoryInfo = saveCategoryInfo;
+            vm.deleteCategory = deleteCategory;
+            vm.addCategory = addCategory;
+
+            vm.getSubCategories = getSubCategories;
+            vm.saveSubCategoryInfo = saveSubCategoryInfo;
+            vm.deleteSubCategory = deleteSubCategory;
+            vm.addSubCategory = addSubCategory;
+
             function getUsers() {
                 return users;
             }
@@ -179,6 +189,95 @@
                         return res.results;
                     });
             }
+
+            ///////////////////////////////////////////////////////
+
+            function getCategories() {
+                return http
+                    .get(url + 'Categories')
+                    .then(function (res) {
+                        return res.results;
+                    });
+            }
+
+
+            /**
+             *
+             * @param category data
+             */
+            function saveCategoryInfo(category) {
+                return http
+                    .put(url + 'Categories/' + category.objectId, category)
+                    .then(function (res) {
+                        return res.results;
+                    });
+            }
+
+            function deleteCategory(category) {
+                return http
+                    .delete(url + 'Categories/' + category.objectId)
+                    .then(function (res) {
+                        return res.results;
+                    });
+            }
+
+            /**
+             *
+             * @param {{Object}} data - category data
+             * @param {{image}} data.name - name category
+             */
+            function addCategory(data) {
+                return http
+                    .post(url + 'Categories', data)
+                    .then(function (res) {
+                        return res.results;
+                    });
+            }
+
+            ///////////////////////////////////////////////////////
+
+            function getSubCategories(categoryId) {
+                return http
+                    .get(url + 'Subcategories?where={"category":"' + categoryId + '"}')
+                    .then(function (res) {
+                        return res.results;
+                    });
+            }
+
+
+            /**
+             *
+             * @param category data
+             */
+            function saveSubCategoryInfo(category) {
+                return http
+                    .put(url + 'Subcategories/' + category.objectId, category)
+                    .then(function (res) {
+                        return res.results;
+                    });
+            }
+
+            function deleteSubCategory(category) {
+                return http
+                    .delete(url + 'Subcategories/' + category.objectId)
+                    .then(function (res) {
+                        return res.results;
+                    });
+            }
+
+            /**
+             *
+             * @param {{Object}} data - category data
+             * @param {{image}} data.name - name category
+             */
+            function addSubCategory(data) {
+                return http
+                    .post(url + 'Subcategories', data)
+                    .then(function (res) {
+                        return res.results;
+                    });
+            }
+
 
         }])
 }());

@@ -36,6 +36,12 @@
                 templateUrl: 'templates/news.html',
                 controller: 'NewsCtrl',
                 controllerAs: 'vm'
+            })
+            .state('app.categories', {
+                url: '/categories',
+                templateUrl: 'templates/categories.html',
+                controller: 'CategoriesCtrl',
+                controllerAs: 'vm'
             });
     }
 }());
