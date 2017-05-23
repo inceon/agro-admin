@@ -7,6 +7,7 @@
             'ngSanitize',
             'ngCookies',
             'ngAnimate',
+            'ngFileUpload',
             'ngAria',
             'toastr'
         ])

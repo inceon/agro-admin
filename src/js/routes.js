@@ -48,6 +48,12 @@
                 templateUrl: 'templates/suggestion.html',
                 controller: 'SuggestionCtrl',
                 controllerAs: 'vm'
+            })
+            .state('app.services', {
+                url: '/services',
+                templateUrl: 'templates/services.html',
+                controller: 'ServicesCtrl',
+                controllerAs: 'vm'
             });
     }
 }());

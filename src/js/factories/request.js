@@ -2,9 +2,9 @@
     'use strict';
     angular
         .module('app')
-        .factory('http', ['$http', '$sessionStorage', '$q', 'back4app', 'toastr', http]);
+        .factory('http', ['$http', '$sessionStorage', '$q', 'back4app', 'toastr', 'Upload', http]);
 
-    function http($http, $sessionStorage, $q, back4app, toastr) {
+    function http($http, $sessionStorage, $q, back4app, toastr, Upload) {
 
         return {
             get: function (url, data) {
@@ -18,6 +18,9 @@
             },
             delete: function (url, data) {
                 return request('DELETE', url, data);
+            },
+            file: function (url, data) {
+                return requestFile(url, data);
             }
         };
 
@@ -29,7 +32,6 @@
          * @param {object} data - Data to request
          * @returns {promise}
          */
-
         function request(method, url, data) {
 
             var config = {
@@ -111,7 +113,6 @@
          * @param response
          * @returns {promise}
          */
-
         function requestComplete(response) {
             var promise = $q.defer();
 
@@ -125,6 +126,38 @@
             }
 
             return promise.promise;
+        }
+
+        /**
+         * Function for sending files
+         * @param {string} url - Request url
+         * @param {object} data - Data to request
+         * @returns {promise}
+         */
+        function requestFile(url, data) {
+            return $http({
+                method: 'POST',
+                url: url,
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    'X-Parse-Application-Id': back4app.appId,
+                    'X-Parse-REST-API-Key': back4app.token
+                },
+                data: data,
+                transformRequest: function (data, headersGetter) {
+                    var formData = new FormData();
+                    angular.forEach(data, function (value, key) {
+                        formData.append(key, value);
+                    });
+
+                    var headers = headersGetter();
+                    delete headers['Content-Type'];
+
+                    return formData;
+                }
+            })
+                .then(requestComplete)
+                .catch(requestFailed);
         }
     }
 }());

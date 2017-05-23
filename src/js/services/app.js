@@ -109,6 +109,16 @@
             vm.getSuggestion = getSuggestion;
             vm.deleteSuggestion = deleteSuggestion;
 
+            vm.getServices = getServices;
+            vm.saveServiceInfo = saveServiceInfo;
+            vm.deleteService = deleteService;
+            vm.addService = addService;
+
+            vm.getComments = getComments;
+            vm.deleteComment = deleteComment;
+
+            vm.uploadFile = uploadFile;
+
             function getUsers() {
                 return users;
             }
@@ -314,6 +324,86 @@
                     .then(function (res) {
                         return res.results;
                     });
+            }
+
+            ///////////////////////////////////////////////////////
+
+            function getServices() {
+                return http
+                    .get(url + 'Services')
+                    .then(function (res) {
+                        return res.results;
+                    });
+            }
+
+            /**
+             *
+             * @param news data
+             */
+            function saveServiceInfo(news) {
+                return http
+                    .put(url + 'Services/' + news.objectId, news)
+                    .then(function (res) {
+                        return res.results;
+                    });
+            }
+
+            function deleteService(news) {
+                return http
+                    .delete(url + 'Services/' + news.objectId)
+                    .then(function (res) {
+                        return res.results;
+                    });
+            }
+
+            /**
+             *
+             * @param {{Object}} data - service data
+             * @param {{image}} data.photo - photo service
+             * @param {{string}} data.text - service text
+             * @param {{string}} data.location - service location
+             */
+            function addService(data) {
+                return http
+                    .post(url + 'Services', data)
+                    .then(function (res) {
+                        return res.results;
+                    });
+            }
+
+            //////////////////////////////////////////////
+
+            function getComments(sourceId) {
+                return http
+                    .get(url + 'Comments', {
+                        where: {
+                            "source": sourceId
+                        }
+                    })
+                    .then(function (res) {
+                        return res.results;
+                    });
+            }
+
+            function deleteComment(comment) {
+                return http
+                    .delete(url + 'Comments/' + comment.objectId)
+                    .then(function (res) {
+                        return res.results;
+                    });
+            }
+
+            //////////////////////////////////////////////
+
+            function uploadFile(file, source) {
+                return http
+                    .file(url + 'Files', {
+                        file: file,
+                        source: source
+                    })
+                    .then(function (res) {
+                        console.log(res);
+                    })
             }
 
 
