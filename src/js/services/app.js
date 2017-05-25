@@ -98,11 +98,13 @@
             vm.addNews = addNews;
 
             vm.getCategories = getCategories;
+            vm.getCategory = getCategory;
             vm.saveCategoryInfo = saveCategoryInfo;
             vm.deleteCategory = deleteCategory;
             vm.addCategory = addCategory;
 
             vm.getSubCategories = getSubCategories;
+            vm.getSubCategory = getSubCategory;
             vm.saveSubCategoryInfo = saveSubCategoryInfo;
             vm.deleteSubCategory = deleteSubCategory;
             vm.addSubCategory = addSubCategory;
@@ -119,6 +121,11 @@
             vm.deleteComment = deleteComment;
 
             vm.uploadFile = uploadFile;
+            vm.addFile = addFile;
+            vm.getFiles = getFiles;
+
+            vm.getOffers = getOffers;
+            vm.deleteOffer = deleteOffer;
 
             function getUsers() {
                 return users;
@@ -227,6 +234,17 @@
                     });
             }
 
+            function getCategory(categoryId) {
+                return http
+                    .get(url + 'Categories', {
+                        where: {
+                            "objectId": categoryId
+                        }
+                    })
+                    .then(function (res) {
+                        return res.results;
+                    });
+            }
 
             /**
              *
@@ -275,6 +293,17 @@
                     });
             }
 
+            function getSubCategory(subcategoryId) {
+                return http
+                    .get(url + 'Subcategories', {
+                        where: {
+                            "objectId": subcategoryId
+                        }
+                    })
+                    .then(function (res) {
+                        return res.results;
+                    });
+            }
 
             /**
              *
@@ -404,6 +433,49 @@
                     })
             }
 
+            /**
+             *
+             * @param {object} data
+             * @param {string} data.url - url to file
+             * @param {string} data.source - source file
+             */
+            function addFile(data) {
+                return http
+                    .post(url + 'Files', data)
+                    .then(function (res) {
+                        return res.results;
+                    });
+            }
+
+            function getFiles(sourceId) {
+                return http
+                    .get(url + 'Files', {
+                        where: {
+                            "source": sourceId
+                        }
+                    })
+                    .then(function (res) {
+                        return res.results;
+                    });
+            }
+
+            //////////////////////////////////////////////
+
+            function getOffers() {
+                return http
+                    .get(url + 'Offers')
+                    .then(function (res) {
+                        return res.results;
+                    });
+            }
+
+            function deleteOffer(offer) {
+                return http
+                    .delete(url + 'Offers/' + offer.objectId)
+                    .then(function (res) {
+                        return res.results;
+                    });
+            }
 
         }])
 }());

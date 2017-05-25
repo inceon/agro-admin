@@ -1,0 +1,44 @@
+.offers {
+    .card {
+        position: relative;
+        background: #fff;
+        padding: 10px;
+        margin: 10px;
+        border: 1px solid gray;
+        border-radius: 10px;
+        .del {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 5px 8px;
+            color: red;
+        }
+        .photo {
+            width: 200px;
+            img {
+                width: 100%;
+            }
+        }
+        .title {
+            font-size: 17px;
+            input {
+                margin-top: 7px;
+                padding: 2px 5px;
+                width: 100%;
+            }
+        }
+        .date {
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .text {
+            font-weight: normal;
+            font-size: 15px;
+            textarea {
+                margin-top: 7px;
+                padding: 2px 5px;
+                width: 100%;
+            }
+        }
+    }
+}
