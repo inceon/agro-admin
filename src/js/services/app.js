@@ -84,6 +84,7 @@
                 },
             ];
             var url = 'https://parseapi.back4app.com/classes/';
+            var fileUrl = 'https://parseapi.back4app.com/files/';
 
             vm.getUsers = getUsers;
             vm.getUser = getUser;
@@ -395,14 +396,11 @@
 
             //////////////////////////////////////////////
 
-            function uploadFile(file, source) {
+            function uploadFile(file) {
                 return http
-                    .file(url + 'Files', {
-                        file: file,
-                        source: source
-                    })
+                    .file(fileUrl + file.name, file)
                     .then(function (res) {
-                        console.log(res);
+                        return res.data;
                     })
             }
 

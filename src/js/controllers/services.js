@@ -9,10 +9,6 @@
         $scope.$emit('changeTitle', 'Сервисы');
         var vm = this;
 
-        vm.upload = function () {
-            app.uploadFile(vm.data.file, 'fSHRQdaZTx');
-        };
-
         vm.saveInfo = saveInfo;
         vm.deleteService = deleteService;
         vm.deleteComment = deleteComment;

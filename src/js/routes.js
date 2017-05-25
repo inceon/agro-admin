@@ -25,6 +25,12 @@
                 controllerAs: 'vm',
                 abstract: true
             })
+            .state('app.upload', {
+                url: '/upload',
+                templateUrl: 'templates/upload.html',
+                controller: 'UploadCtrl',
+                controllerAs: 'vm'
+            })
             .state('app.users', {
                 url: '/users',
                 templateUrl: 'templates/users.html',
@@ -53,6 +59,12 @@
                 url: '/services',
                 templateUrl: 'templates/services.html',
                 controller: 'ServicesCtrl',
+                controllerAs: 'vm'
+            })
+            .state('app.offers', {
+                url: '/offers',
+                templateUrl: 'templates/offers.html',
+                controller: 'OffersCtrl',
                 controllerAs: 'vm'
             });
     }

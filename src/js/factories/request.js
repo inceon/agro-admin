@@ -134,30 +134,16 @@
          * @param {object} data - Data to request
          * @returns {promise}
          */
-        function requestFile(url, data) {
-            return $http({
-                method: 'POST',
+        function requestFile(url, file) {
+            return Upload.http({
                 url: url,
                 headers: {
-                    'Content-Type': 'multipart/form-data',
+                    'Content-Type': file.type,
                     'X-Parse-Application-Id': back4app.appId,
                     'X-Parse-REST-API-Key': back4app.token
                 },
-                data: data,
-                transformRequest: function (data, headersGetter) {
-                    var formData = new FormData();
-                    angular.forEach(data, function (value, key) {
-                        formData.append(key, value);
-                    });
-
-                    var headers = headersGetter();
-                    delete headers['Content-Type'];
-
-                    return formData;
-                }
-            })
-                .then(requestComplete)
-                .catch(requestFailed);
+                data: file
+            });
         }
     }
 }());
