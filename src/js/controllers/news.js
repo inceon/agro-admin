@@ -29,17 +29,21 @@
         }
 
         function saveInfo(news) {
-            if (news.objectId) {
-                app.saveNewsInfo(news)
-                    .then(function () {
-                        updateList();
-                    });
-            } else {
-                app.addNews(news)
-                    .then(function () {
-                        updateList();
-                    });
-            }
+            app.uploadFile(vm.data.file)
+                .then(function (res) {
+                    news.photo = res.url;
+                    if (news.objectId) {
+                        app.saveNewsInfo(news)
+                            .then(function () {
+                                updateList();
+                            });
+                    } else {
+                        app.addNews(news)
+                            .then(function () {
+                                updateList();
+                            });
+                    }
+                });
             news.edit = false;
         }
 

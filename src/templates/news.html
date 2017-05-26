@@ -23,7 +23,10 @@
 
             <span ng-if="news.edit">
                 <div class="photo">
-                    <input type="file">
+                    <img ngf-thumbnail="vm.data.file" width="400" height="250" alt="Image preview..."> <br>
+                    <button class="btn btn-default" ngf-select ng-model="vm.data.file" name="file"
+                            ngf-max-size="20MB" ngf-min-height="100">Select
+                    </button>
                 </div>
                 <div class="title">
                     <input type="text" ng-model="news.title">
