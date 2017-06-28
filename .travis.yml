@@ -1,3 +1,5 @@
+sudo: required
+dist: dist
 language: node_js
 node_js:
   - "7"
