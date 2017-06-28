@@ -1,0 +1,42 @@
+<div class="row services">
+    <div class="col-lg-12">
+        <div class="row card" ng-repeat="service in vm.services | orderBy:'$index':true track by $index">
+            <div class="del" ng-click="vm.deleteService(service)">
+                <i class="glyphicon glyphicon-remove"></i>
+            </div>
+            <span ng-if="!service.edit" ng-click="service.edit = !service.edit">
+                <div class="photo">
+                    <img ng-src="{{service.photo}}">
+                </div>
+                <div class="title">{{service.title}}</div>
+                <div class="date">{{service.createdAt | date : 'dd.MM.yyyy HH:mm:ss'}}</div>
+                <div class="text">{{service.text}}</div>
+            </span>
+            <div class="comments">
+                <p ng-repeat="comment in service.comments">
+                    {{comment.text}}
+                    <span class="pull-right" ng-click="vm.deleteComment(comment)">
+                        <i class="glyphicon glyphicon-remove"></i>
+                    </span>
+                </p>
+            </div>
+
+            <span ng-if="service.edit">
+                <div class="photo">
+                    <input type="file">
+                </div>
+                <div class="title">
+                    <input type="text" ng-model="service.title">
+                </div>
+                <div class="text">
+                    <textarea rows="5" ng-model="service.text"></textarea>
+                </div>
+                <div class="col-lg-offset-4 col-lg-4">
+                    <button class="btn btn-default btn-block" ng-click="vm.saveInfo(service)">
+                        Сохранить
+                    </button>
+                </div>
+            </span>
+        </div>
+    </div>
+</div>

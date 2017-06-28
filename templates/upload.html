@@ -1,0 +1,15 @@
+<div class="row upload">
+    <div class="col-lg-12">
+        <img ngf-thumbnail="vm.data.file" width="400" height="250" alt="Image preview..."> <br>
+        <button class="btn btn-default" ngf-select ng-model="vm.data.file" name="file" ngf-max-size="20MB" ngf-min-height="100">Select
+        </button>
+        <!--<input type="file" fileread="vm.data.file">-->
+        <button class="btn btn-default" ng-click="vm.upload()">Отправить</button>
+
+        <div ng-if="vm.link">
+            <img ng-src="{{vm.link}}" width="400" height="250"> <br>
+            <a ng-href="{{vm.link}}">{{vm.link}}</a> <br>
+            <input type="text" style="width: 100%" ng-value="vm.link">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,201 @@
+.categories .list-group.list-group-root {
+  padding: 0;
+  overflow: hidden; }
+
+.categories .list-group.list-group-root .list-group-item {
+  border-radius: 0;
+  border-width: 1px 0 0 0; }
+
+.categories .list-group.list-group-root > .list-group-item:first-child {
+  border-top-width: 0; }
+
+.categories .list-group.list-group-root .list-group .list-group-item {
+  padding-left: 37px; }
+
+.categories .list-group-item .glyphicon {
+  margin-right: 5px; }
+
+#login {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  background-color: #30426a; }
+  #login .form {
+    background: #eee;
+    margin-top: 20%;
+    padding: 20px;
+    border-radius: 7px; }
+
+.news .card {
+  position: relative;
+  background: #fff;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid gray;
+  border-radius: 10px; }
+  .news .card .del {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 8px;
+    color: red; }
+  .news .card .photo {
+    width: 200px; }
+    .news .card .photo img {
+      width: 100%; }
+  .news .card .title {
+    font-size: 17px; }
+    .news .card .title input {
+      margin-top: 7px;
+      padding: 2px 5px;
+      width: 100%; }
+  .news .card .date {
+    font-size: 12px;
+    font-weight: bold; }
+  .news .card .text {
+    font-weight: normal;
+    font-size: 15px; }
+    .news .card .text textarea {
+      margin-top: 7px;
+      padding: 2px 5px;
+      width: 100%; }
+
+.offers .card {
+  position: relative;
+  background: #fff;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid gray;
+  border-radius: 10px; }
+  .offers .card .del {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 8px;
+    color: red; }
+  .offers .card .photo {
+    width: 200px; }
+    .offers .card .photo img {
+      width: 100%; }
+  .offers .card .title {
+    font-size: 17px; }
+    .offers .card .title input {
+      margin-top: 7px;
+      padding: 2px 5px;
+      width: 100%; }
+  .offers .card .date {
+    font-size: 12px;
+    font-weight: bold; }
+  .offers .card .text {
+    font-weight: normal;
+    font-size: 15px; }
+    .offers .card .text textarea {
+      margin-top: 7px;
+      padding: 2px 5px;
+      width: 100%; }
+
+.services .card {
+  position: relative;
+  background: #fff;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid gray;
+  border-radius: 10px; }
+  .services .card .del {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 8px;
+    color: red; }
+  .services .card .photo {
+    width: 200px; }
+    .services .card .photo img {
+      width: 100%; }
+  .services .card .title {
+    font-size: 17px; }
+    .services .card .title input {
+      margin-top: 7px;
+      padding: 2px 5px;
+      width: 100%; }
+  .services .card .date {
+    font-size: 12px;
+    font-weight: bold; }
+  .services .card .text {
+    font-weight: normal;
+    font-size: 15px; }
+    .services .card .text textarea {
+      margin-top: 7px;
+      padding: 2px 5px;
+      width: 100%; }
+  .services .card .comments {
+    padding: 5px;
+    width: 100%;
+    max-height: 150px;
+    overflow-y: scroll;
+    border: 1px solid #eee; }
+    .services .card .comments p {
+      height: auto;
+      padding: 5px 0;
+      box-sizing: border-box;
+      border-bottom: 1px solid #eee; }
+      .services .card .comments p:last-of-type {
+        border: none; }
+
+.suggestion .card {
+  position: relative;
+  background: #fff;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid gray;
+  border-radius: 10px; }
+  .suggestion .card .del {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 8px;
+    color: red; }
+  .suggestion .card .photo {
+    width: 200px; }
+    .suggestion .card .photo img {
+      width: 100%; }
+  .suggestion .card .title {
+    font-size: 17px; }
+    .suggestion .card .title input {
+      margin-top: 7px;
+      padding: 2px 5px;
+      width: 100%; }
+  .suggestion .card .date {
+    font-size: 12px;
+    font-weight: bold; }
+  .suggestion .card .text {
+    font-weight: normal;
+    font-size: 15px; }
+    .suggestion .card .text textarea {
+      margin-top: 7px;
+      padding: 2px 5px;
+      width: 100%; }
+
+.users .table td.photo {
+  width: 20%; }
+  .users .table td.photo img {
+    width: 100%; }
+
+.users .table td.name, .users .table td.surname, .users .table td.phone, .users .table td.access {
+  width: 17%; }
+
+.users .table td.menu {
+  width: 8%; }
+  .users .table td.menu i {
+    text-align: center;
+    width: 45%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px; }
+    .users .table td.menu i.glyphicon-remove {
+      color: red; }
+    .users .table td.menu i.glyphicon-save {
+      color: dodgerblue; }
+    .users .table td.menu i:hover {
+      background: #eee;
+      cursor: pointer; }
