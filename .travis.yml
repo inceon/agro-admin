@@ -4,8 +4,8 @@ language: node_js
 node_js:
   - "7"
 install:
-  - yarn add global bower
   - yarn
+  - yarn add global bower
   - bower install
 script: 
   - gulp build
